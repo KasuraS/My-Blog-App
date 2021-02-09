@@ -1,15 +1,15 @@
 const { expect } = require("chai");
 const MongoClient = require("mongodb").MongoClient;
-const config = require("../src/_helpers/server.config");
-const _config = require("../src/_helpers/local.server.config");
+const config = require("../src/api/_helpers/server.config");
+const localConfig = require("../src/api/_helpers/local.server.config");
 
 describe("Test database connection", () => {
   const { dbName, dbUser, dbPassword } = config;
 
   it("constants should not be undefined", () => {
-    expect(_config["dbUser"]).to.be.equal(dbUser);
-    expect(_config["dbPassword"]).to.be.equal(dbPassword);
-    expect(_config["dbName"]).to.be.equal(dbName);
+    expect(localConfig["dbUser"]).to.be.equal(dbUser);
+    expect(localConfig["dbPassword"]).to.be.equal(dbPassword);
+    expect(localConfig["dbName"]).to.be.equal(dbName);
   });
 
   it("db connection should be successful", async () => {
